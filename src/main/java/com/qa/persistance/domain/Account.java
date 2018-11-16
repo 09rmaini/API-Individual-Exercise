@@ -1,6 +1,6 @@
 package com.qa.persistance.domain;
 import java.util.List;
-import java.util.Map;
+
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,8 +26,8 @@ public class Account {
 	@Column(length=25)
 	private String trainer;
 	
-	@OneToMany
-	@JoinColumn(name="trainee_id", referencedColumnName="ID")
+	@OneToMany(cascade = CascadeType.ALL, 
+	        mappedBy = "trainee_id", orphanRemoval = true)
 	private List<Account2> traineesMap;
 	
 	public Account() {

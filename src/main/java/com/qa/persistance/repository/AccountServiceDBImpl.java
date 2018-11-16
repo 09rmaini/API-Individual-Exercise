@@ -20,7 +20,7 @@ public class AccountServiceDBImpl  implements AccountRepository
 {
 	
 	
-//	@PersistenceContext(unitName= "primary")
+	@PersistenceContext(unitName = "primary")
 	private EntityManager manager;
 	
 	public String getAllAccounts() 
